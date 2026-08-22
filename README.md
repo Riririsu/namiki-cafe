@@ -47,28 +47,17 @@ namiki-coffee/
 
 ## 画像について
 
-**画像ファイルはこのリポジトリには含まれていません。** ロゴ・favicon・メインビジュアルのスライダー画像・
-ギャラリー画像などは `namiki-coffee/assets/img/` に配置する前提で実装されています。
-同じファイル名で画像を用意するか、各テンプレートの `assets/img/...` の参照先を差し替えてください。
+`namiki-coffee/assets/img/` に画像を同梱しています（36 ファイル）。
+ただし以下の 8 ファイルは未同梱のため、該当箇所は画像が表示されません。
 
-<details>
-<summary>必要な画像ファイル名の一覧</summary>
+| 未同梱のファイル | 使われている箇所 |
+| --- | --- |
+| `favicon.ico` / `favicon.png` / `favicon.svg` / `webclip.png` | ファビコン・ホーム画面アイコン |
+| `img_menu_season.png` | MENU セクションの季節限定メニュー |
+| `img_lunch_1.png` 〜 `img_lunch_3.png` | MENU セクションの LUNCH タブ |
 
-```
-favicon.ico / favicon.png / favicon.svg / webclip.png
-img_logo.png
-img_FV_01_PC.png 〜 img_FV_04_PC.png      … メインビジュアル（PC）
-img_FV_01_SP.jpg 〜 img_FV_04_SP.jpg      … メインビジュアル（SP）
-img_concept_01.png / img_concept_02.png
-img_about_01.png 〜 img_about_03.png
-img_menu_season.png
-img_food_1.png 〜 img_food_7.png
-img_drink_1.png 〜 img_drink_8.png
-img_lunch_1.png 〜 img_lunch_3.png
-img_gallery-01.png 〜 img_gallery-07.png
-```
-
-</details>
+同じファイル名で画像を追加するか、`front-page.php` / `header.php` 内の
+`assets/img/...` の参照先を差し替えてください。
 
 ## セットアップ
 
@@ -101,4 +90,4 @@ img_gallery-01.png 〜 img_gallery-07.png
 
 [GNU General Public License v2 or later](LICENSE) で公開しています。
 
-`assets/img/` に配置する画像・ロゴ等の素材は、このライセンスの対象外です。
+同梱している `assets/img/` 内の画像素材は、このライセンスの対象外です（転載・再配布はご遠慮ください）。
