@@ -8,7 +8,8 @@
 架空のカフェ「並木珈琲」のコーポレートサイトという想定で制作した、オリジナルの WordPress クラシックテーマです。
 静的コーディング（HTML/CSS/JS）を自作したうえで、プラグインに依存しない形で WordPress テーマ化しています。
 
-**ポートフォリオ**: https://riririsu.github.io/portfolio/index.html
+- **デモサイト**: https://riririsu.github.io/namiki-cafe/
+- **ポートフォリオ**: https://riririsu.github.io/portfolio/index.html
 
 ## 特徴
 
@@ -36,6 +37,9 @@ namiki-coffee/
     ├── css/main.css
     ├── js/main.js
     └── img/             … 画像を設置する場所（下記「画像について」参照）
+
+tools/                   … デモサイトのビルドスクリプト（テーマの動作には不要）
+docs/                    … GitHub Pages で公開しているデモ（自動生成）
 ```
 
 ## インストール
@@ -48,13 +52,14 @@ namiki-coffee/
 ## 画像について
 
 `namiki-coffee/assets/img/` に画像を同梱しています（36 ファイル）。
-ただし以下の 8 ファイルは未同梱のため、該当箇所は画像が表示されません。
+ただし以下の 9 ファイルは未同梱のため、該当箇所は画像が表示されません。
 
 | 未同梱のファイル | 使われている箇所 |
 | --- | --- |
 | `favicon.ico` / `favicon.png` / `favicon.svg` / `webclip.png` | ファビコン・ホーム画面アイコン |
 | `img_menu_season.png` | MENU セクションの季節限定メニュー |
 | `img_lunch_1.png` 〜 `img_lunch_3.png` | MENU セクションの LUNCH タブ |
+| `img_shop_SP.png` | SHOP INFO セクションの背景（SP 表示） |
 
 同じファイル名で画像を追加するか、`front-page.php` / `header.php` 内の
 `assets/img/...` の参照先を差し替えてください。
@@ -79,6 +84,30 @@ namiki-coffee/
 - **本文**：`the_content()` で出力されるため、ブロックエディタでそのまま執筆できます。
 
 より詳しい導入手順は [`namiki-coffee/README.md`](namiki-coffee/README.md) を参照してください。
+
+## デモサイトについて
+
+WordPress テーマは PHP と DB がないと表示できないため、GitHub 上ではコードしか確認できません。
+そこで、テンプレートを WordPress なしで実行して静的 HTML を書き出すビルドスクリプトを用意し、
+その出力を `docs/` に置いて GitHub Pages で公開しています。
+
+```
+tools/
+├── demo-bootstrap.php  … WordPress 関数の最小スタブ（ループ、フック、テンプレートタグ）
+└── build-demo.php      … テンプレートを実行して docs/ に HTML を書き出す
+```
+
+再生成するには次を実行します。
+
+```bash
+php tools/build-demo.php
+```
+
+デモ固有の扱い：
+
+- NEWS はダミー記事 5 件を差し込んでいます（実際は投稿から出力されます）
+- 未同梱の画像はプレースホルダーに置き換えています
+- 写真は表示速度のため JPEG に変換・リサイズしています（テーマ本体の画像は元のまま）
 
 ## カスタマイズのメモ
 
