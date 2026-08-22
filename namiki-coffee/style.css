@@ -1,0 +1,16 @@
+/*
+Theme Name: Namiki Coffee
+Theme URI: https://github.com/Riririsu/namiki-cafe
+Author: Riririsu
+Author URI: https://github.com/Riririsu
+Description: 並木珈琲 コーポレートサイト用オリジナルテーマ
+Version: 1.0
+Requires at least: 6.0
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: namiki-coffee
+*/
+
+/* 実際のスタイルは assets/css/reset.css と assets/css/main.css を
+   functions.php から読み込んでいます。このファイルは編集不要です。 */
