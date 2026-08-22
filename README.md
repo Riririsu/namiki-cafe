@@ -51,18 +51,9 @@ docs/                    … GitHub Pages で公開しているデモ（自動�
 
 ## 画像について
 
-`namiki-coffee/assets/img/` に画像を同梱しています（36 ファイル）。
-ただし以下の 9 ファイルは未同梱のため、該当箇所は画像が表示されません。
-
-| 未同梱のファイル | 使われている箇所 |
-| --- | --- |
-| `favicon.ico` / `favicon.png` / `favicon.svg` / `webclip.png` | ファビコン・ホーム画面アイコン |
-| `img_menu_season.png` | MENU セクションの季節限定メニュー |
-| `img_lunch_1.png` 〜 `img_lunch_3.png` | MENU セクションの LUNCH タブ |
-| `img_shop_SP.png` | SHOP INFO セクションの背景（SP 表示） |
-
-同じファイル名で画像を追加するか、`front-page.php` / `header.php` 内の
-`assets/img/...` の参照先を差し替えてください。
+`namiki-coffee/assets/img/` に画像を同梱しています（43 ファイル）。
+未同梱なのは favicon 関連の 4 ファイル（`favicon.ico` / `favicon.png` / `favicon.svg` / `webclip.png`）のみで、
+ページ内の表示には影響しません（ブラウザのタブアイコンが表示されないだけです）。
 
 ## セットアップ
 
@@ -106,7 +97,7 @@ php tools/build-demo.php
 デモ固有の扱い：
 
 - NEWS はダミー記事 5 件を差し込んでいます（実際は投稿から出力されます）
-- 未同梱の画像はプレースホルダーに置き換えています
+- 未同梱の画像があればプレースホルダーに置き換えます（現在は該当なし）
 - 写真は表示速度のため JPEG に変換・リサイズしています（テーマ本体の画像は元のまま）
 
 ## カスタマイズのメモ

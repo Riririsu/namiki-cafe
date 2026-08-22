@@ -72,6 +72,14 @@ foreach ( glob( $out_dir . '/assets/img/*.png' ) as $png ) {
 	if ( ! $src ) {
 		continue;
 	}
+
+	// 透過を使っている画像は JPEG にすると背景が黒く潰れるので PNG のまま残す
+	if ( demo_has_alpha( $src ) ) {
+		imagedestroy( $src );
+		printf( "kept as png: %-20s (transparency)\n", basename( $png ) );
+		continue;
+	}
+
 	if ( imagesx( $src ) > $max_width ) {
 		$src = imagescale( $src, $max_width );
 	}
@@ -99,6 +107,11 @@ $pages = array(
 	'news.html'        => array( 'news', 'home.php', $GLOBALS['demo_posts'] ),
 	'news-single.html' => array( 'single', 'single.php', array( $GLOBALS['demo_posts'][0] ) ),
 );
+
+// CSS から参照している画像も同じく差し替える
+foreach ( glob( $out_dir . '/assets/css/*.css' ) as $css ) {
+	file_put_contents( $css, strtr( file_get_contents( $css ), $rewrite ) );
+}
 
 foreach ( $pages as $file => $conf ) {
 	list( $page, $template, $posts ) = $conf;
@@ -145,6 +158,20 @@ function demo_copy_dir( $src, $dst ) {
 		$to   = $dst . '/' . $entry;
 		is_dir( $from ) ? demo_copy_dir( $from, $to ) : copy( $from, $to );
 	}
+}
+
+/** 画像が透過ピクセルを含むか（2px おきに走査すれば十分） */
+function demo_has_alpha( $im ) {
+	$w = imagesx( $im );
+	$h = imagesy( $im );
+	for ( $y = 0; $y < $h; $y += 2 ) {
+		for ( $x = 0; $x < $w; $x += 2 ) {
+			if ( ( ( imagecolorat( $im, $x, $y ) >> 24 ) & 0x7F ) > 0 ) {
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 /** 画像が未用意の箇所に置く、サイトのトーンに合わせた無地のプレースホルダー */

@@ -1808,6 +1808,15 @@ main {
   }
 }
 
+/* PC では横長の背景画像に差し替える（SP 用画像は 376px 幅のため引き伸ばすと粗くなる） */
+@media screen and (min-width: 768px) {
+  .page_top__shop-info {
+    background-image: url(../img/img_shop_PC.png);
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 .page_top__shop-info__inner {
   background: rgba(38, 25, 15, 0.71);
 }

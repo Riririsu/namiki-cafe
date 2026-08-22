@@ -1788,7 +1788,7 @@ main {
     Shop Info (page_top__shop-info)
    -------------------------------------------------------------------------- */
 .page_top__shop-info {
-  background: url(../img/img_shop_SP.png);
+  background: url(../img/img_shop_SP.jpg);
   color: var(--color-white);
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
@@ -1805,6 +1805,15 @@ main {
   .page_top__shop-info .u_eyebrow {
     font-size: 36px;
     color: #fff;
+  }
+}
+
+/* PC では横長の背景画像に差し替える（SP 用画像は 376px 幅のため引き伸ばすと粗くなる） */
+@media screen and (min-width: 768px) {
+  .page_top__shop-info {
+    background-image: url(../img/img_shop_PC.jpg);
+    background-size: cover;
+    background-position: center;
   }
 }
 

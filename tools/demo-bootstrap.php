@@ -264,7 +264,7 @@ function has_post_thumbnail() {
 function the_post_thumbnail( $size = 'large', $attr = array() ) {
 	$class = esc_attr( $attr['class'] ?? '' );
 	printf(
-		'<img src="./assets/img/img_gallery-03.png" width="1200" height="800" alt="" class="%s" />',
+		'<img src="./assets/img/img_single_peach-tart_original.png" width="1536" height="1024" alt="" class="%s" />',
 		$class
 	);
 }
